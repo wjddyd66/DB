@@ -29,3 +29,11 @@ select jikwon_name, buser_name from jikwon, buser where buser_num=buser_no;
 -- 오라클용 (다른데 가서 이렇게 쓰면 안될 수가 있다.)
 select jikwon_name, buser_name from jikwon inner join buser on buser_num=buser_no; 
 -- 표준SQL용
+
+-- 세 개 이상의 테이블 조인: 세 개를 동시에 조인X. (1번+2번 조인)+3번 조인O
+select jikwon_name, buser_name, gogek_name from jikwon, buser, gogek
+where buser_num=buser_no and jikwon_no=gogek_damsano;
+
+select jikwon_name, buser_name, gogek_name 
+from jikwon inner join buser on buser_num=buser_no 
+inner join gogek on jikwon_no=gogek_damsano;
