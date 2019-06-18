@@ -37,3 +37,40 @@ where buser_num=buser_no and jikwon_no=gogek_damsano;
 select jikwon_name, buser_name, gogek_name 
 from jikwon inner join buser on buser_num=buser_no 
 inner join gogek on jikwon_no=gogek_damsano;
+
+-- union: 구조가 일치하는 두 개 이상의 테이블 자료 합쳐보기
+create table pum1(bun int, pummok varchar2(10));
+insert into pum1 values(1, '한라봉');
+insert into pum1 values(2, '귤');
+insert into pum1 values(3, '천혜향');
+insert into pum1 values(50, '자몽');
+select * from pum1;
+drop table pum1;
+
+create table pum2 (num int, sangpum varchar2(10));
+insert into pum2 values(10, '사과');
+insert into pum2 values(20, '배');
+insert into pum2 values(30, '포도');
+insert into pum2 values(40, '딸기');
+insert into pum2 values(50, '자몽');
+select * from pum2;
+
+-- 합집합: 두 테이블을 합쳐서 보여준다. 
+select bun, pummok from pum1
+union
+select num, sangpum from pum2;
+
+-- 유니온하되, 중복 있게 보여준다.
+select bun, pummok from pum1
+union all
+select num, sangpum from pum2;
+
+-- 차집합: pum1-pum2. 자몽이 제외된다. 
+select bun, pummok from pum1
+minus
+select num, sangpum from pum2;
+
+-- 교집합: 두 테이블 사이에 중복되는 데이터만 반환
+select bun, pummok from pum1
+intersect
+select num, sangpum from pum2;
