@@ -8,5 +8,5 @@
 6. View (View)
 7. Precedure (Procedure)
 
-**각코드에 대한 자세한 내용: <a href=""><https://wjddyd66.github.io/category/DB></a>**  
+**각코드에 대한 자세한 내용: <https://wjddyd66.github.io/category/DB>**  
 연락처: wjddyd66@naver.com  
